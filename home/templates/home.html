@@ -1,0 +1,21 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+
+
+<form class="imagem_envio" action="{% url 'home' %}" method="POST" enctype="multipart/form-data">{% csrf_token %}
+     
+     <img id="blah" width="100" height="100" class='img'>
+     <input type="file" accept="image/*" name="my_file"
+     onchange="document.getElementById('blah').src = window.URL.createObjectURL(this.files[0])">
+     <input class="envio" type="submit" value="enviar">
+
+</form>
+<div>
+ <label>
+  <form class="ir_galeria" action="{% url 'galeria' %}" method="GET" enctype="multipart/form-data">{% csrf_token %}
+     <button type="submit" class="btn_galeria" value="galeria">galeria</button>
+     <a href="/sair" class"btn">Logout<a/>
+
+  </form>
+ </label>
+</div>
